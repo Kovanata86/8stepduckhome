@@ -1,0 +1,105 @@
+ @keyframes road1 {
+    0% {top: 50%;left: -80px;transform: scale(3,3);}
+    10%{top:10%;left: 10%;transform: scale(2,2);}
+    20%{top:40%;left: 15%;transform: scale(1,1);}
+    30%{top: 10%;left: 45%;transform: scale(1,1);}
+    60%{top: 60%;left: 75%; transform: scale(1,1);}
+     85%{top:45%;left: 45%; transform: scale(3,3);transform: rotate(260deg);}
+    90%{top:20%;left: 60%; transform: scale(2,2);transform: rotate(0deg);}
+    100%{top: 35%;left: 110%;transform: scale(1,1);transform: rotate(0deg);}   
+} 
+@keyframes road2 {
+    0% {top: 50%;left: -80px;transform: scale(3,3);}
+    10%{top:20%;left: 10%;transform: scale(3,3);}
+    20%{top:40%;left: 15%;transform: scale(3,3);transform: rotate(260deg);}
+    30%{top: 10%;left: 45%;transform: scale(3,3);transform: rotate(-100deg);}
+    60%{top: 60%;left: 75%; transform: scale(3,3);transform: rotate(-350deg);}
+    85%{top:45%;left: 45%; transform: scale(3,3);transform: rotate(0deg);}
+    90%{top:20%;left: 60%; transform: scale(3,3);transform: rotate(0deg);}
+    100%{top: 35%;left: 110%;transform: scale(3,3);transform: rotate(0deg);}   
+}
+@keyframes road3 {
+    0% {top: 50%;left: -80px;transform: scale(3,3);}
+    100%{top: 35%;left: 110%;transform: scale(1,1);}
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+	font-family: 'GolosTextWebBlack';
+	src:
+		url('../fonts/Golos-Text_Black.woff2') format('woff2'),
+		url('../fonts/Golos-Text_Black.woff') format('woff'),
+        url('../fonts/Golos-Text_Black.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+    counter-reset: shot;
+    position: relative;
+    background-image: url("../img/Games_Duck_Hunt_Nintendo_Dendy_Nes_025749_9.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 bottom;
+    cursor: crosshair;
+    overflow: hidden;
+    
+}
+
+.listShot{
+    font-family: 'GolosTextWebBlack';
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 50px;
+    color: rgb(158, 5, 5);
+}
+
+input[type="checkbox"]:checked{
+    counter-increment: shot;
+}
+
+input[type="checkbox"]{
+    visibility: hidden;
+}
+
+input[type="checkbox"]:checked + .duck{
+    display: none;
+}
+
+.listShot::after{
+    content: counter(shot);
+}
+
+.duck{
+    display: block;
+    width: 62px;
+    height: 56px;
+    /* outline: 1px solid red; */
+    cursor: move;
+    position: absolute;
+    top: 50%;
+    left: -80px;
+}
+
+.duck1{
+    animation: road1 10s;
+}
+
+.duck2{
+    animation: road2 8s 5s;
+}
+.duck3{
+    animation: road3 12s 3s;
+}
